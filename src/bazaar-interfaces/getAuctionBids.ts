@@ -4,11 +4,13 @@ import auctionBidAbi from './abis/auctionBids'
 import { logger } from '../winston'
 
 export interface AuctionBids {
-  bidder: string
-  currencyAddress: string
-  amount: string
-  marketplaceFee: number
+  bidder: string | null
+  currencyAddress: string | null
+  amount: string | null
+  marketplaceFee: number | null
 }
+
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
  
 const getAuctionBids = async (contract: Address, tokenId: bigint): Promise<AuctionBids | null> => {
   try {
@@ -29,6 +31,10 @@ const getAuctionBids = async (contract: Address, tokenId: bigint): Promise<Aucti
       amount,
       marketplaceFee
     ] = data
+
+    if (bidder === ZERO_ADDRESS || formatEther(amount) === '0') {
+      return null
+    }
 
     return {
         bidder,

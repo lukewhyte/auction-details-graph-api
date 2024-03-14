@@ -5,17 +5,23 @@ const typeDefs = gql`
     auctions(artworkUrl: String!): [Auction]!
   }
 
+  enum AuctionTypes {
+    reserve
+    scheduled
+    unknown
+  }
+
   type Auction {
-    bidder: String!
-    currencyAddress: String!
-    amount: String!
-    marketplaceFee: Int!
+    bidder: String
+    currencyAddress: String
+    amount: String
+    marketplaceFee: Int
     contract: String!
     tokenId: Int!
     auctionCreator: String!
     startingTime: Int!
     lengthOfAuction: Int!
-    auctionType: String!,
+    auctionType: AuctionTypes!,
   }
 `
 
