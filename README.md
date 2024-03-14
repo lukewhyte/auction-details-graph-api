@@ -1,12 +1,12 @@
-# Get SuperRare Auction Details
+# Jalopy SuperRare Auction Details API
 
-You should be able to find all live auctions on SR [here](https://superrare.com/explore?artwork-options=%257B%2522liveAuction%2522%3Atrue%257D).
+For testing, you should be able to find all live auctions on SR [here](https://superrare.com/explore?artwork-options=%257B%2522liveAuction%2522%3Atrue%257D).
 
 ## Query spec
 
 ### Argument
 
- - `artworkUrl`: Should be a SuperRare artwork page url [this one](https://superrare.com/0xca53bb6cdfcd5bf437bf4ac6d17c3b0e67d8a83e/corroded-abbey:-sailor's-offering-11).
+ - `artworkUrl`: Should be a SuperRare artwork page url like [this one](https://superrare.com/0xca53bb6cdfcd5bf437bf4ac6d17c3b0e67d8a83e/corroded-abbey:-sailor's-offering-11).
 
 ### Fields
 
@@ -15,7 +15,7 @@ You should be able to find all live auctions on SR [here](https://superrare.com/
  - `amount`: Bid amount in currency (usually ETH... might be $RARE)
  - `marketplaceFee`: SR's cut
  - `contract`: Contract address
- - `tokenId`: Token id on contract
+ - `tokenId`: Token ID on contract
  - `auctionCreator`: Owner address
  - `startingTime`: When the auction started
  - `lengthOfAuction`: How long the auction will run
