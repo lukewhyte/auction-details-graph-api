@@ -4,20 +4,16 @@ For testing, you should be able to find all live auctions on SR [here](https://s
 
 ## Query spec
 
- - If there's no scheduled or reserve auction for the artwork at all, should return an empty array.
- - If the auction is scheduled or on reserve, but hasn't started (or if no bids yet), bid related fields should return null.
- - If auction is live and has bids, all fields should have values.
-
 ### Argument
 
  - `artworkUrl`: Should be a SuperRare artwork page url like [this one](https://superrare.com/0xca53bb6cdfcd5bf437bf4ac6d17c3b0e67d8a83e/corroded-abbey:-sailor's-offering-11).
 
 ### Fields
 
- - `bidder`: High bidder's address
- - `currencyAddress`: Bid currency address
- - `amount`: Bid amount in currency (usually ETH... might be $RARE)
- - `marketplaceFee`: SR's cut
+ - `bidder`: High bidder's address. Null if no current bidders
+ - `currencyAddress`: Bid currency address. Null if no current bidders
+ - `amount`: Bid amount in currency (usually ETH... might be $RARE). Null if no current bidders
+ - `marketplaceFee`: SR's cut. Null if no current bidders
  - `contract`: Contract address
  - `tokenId`: Token ID on contract
  - `auctionCreator`: Owner address
